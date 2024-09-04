@@ -1,4 +1,3 @@
-from typing import Any
 from django.db.models import QuerySet
 from django.urls import reverse_lazy
 from django.forms.models import BaseModelForm
@@ -32,7 +31,7 @@ class UserPostListView(ListView):
     context_object_name = "posts"
     paginate_by = 10
 
-    def get_queryset(self) -> QuerySet[Any]:
+    def get_queryset(self) -> QuerySet:
         user = get_object_or_404(get_user_model(), username=self.kwargs.get("username"))
         return (
             Post.objects.filter(author=user)
@@ -72,7 +71,7 @@ class PostUpdateView(
         form.instance.author = self.request.user
         return super().form_valid(form)
 
-    def test_func(self) -> bool | None:
+    def test_func(self) -> bool:
         post = self.get_object()
         if self.request.user == post.author:  # type: ignore
             return True
@@ -87,7 +86,7 @@ class PostDeleteView(
     success_url = reverse_lazy("blog_home")
     success_message = "Your post has been successfully deleted."
 
-    def test_func(self) -> bool | None:
+    def test_func(self) -> bool:
         post = self.get_object()
         if self.request.user == post.author:  # type: ignore
             return True
