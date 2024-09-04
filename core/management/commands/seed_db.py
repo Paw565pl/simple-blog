@@ -1,7 +1,4 @@
-from pathlib import Path
-from typing import Any, Optional
 from django.core.management.base import BaseCommand
-from django.db import connection
 from core.models import User
 from blog.models import Post
 import json
@@ -10,7 +7,7 @@ import json
 class Command(BaseCommand):
     help = "Populates database with fake users and posts."
 
-    def handle(self, *args: Any, **options: Any) -> str | None:
+    def handle(self, *args, **options) -> str | None:
         self.stdout.write("Populating database...", ending="\n")
 
         with open("./data/users.json") as users:

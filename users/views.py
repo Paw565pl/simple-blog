@@ -1,4 +1,3 @@
-from typing import Any
 from django.db.models import QuerySet
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView
@@ -35,7 +34,7 @@ class ProfileView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     success_url = reverse_lazy("profile")
     success_message = "Your account has been updated."
 
-    def get_object(self, queryset: QuerySet[Any] | None = ...):
+    def get_object(self, queryset: QuerySet | None = ...):
         return self.request.user
 
 

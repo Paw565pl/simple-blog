@@ -8,7 +8,6 @@ import django_resized.forms
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
