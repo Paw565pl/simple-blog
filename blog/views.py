@@ -3,7 +3,7 @@ from django.db.models import QuerySet
 from django.urls import reverse_lazy
 from django.forms.models import BaseModelForm
 from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404
 from django.views.generic import (
     ListView,
     DetailView,
