@@ -1,11 +1,29 @@
-version: "3.8"
 services:
   app:
     build:
       context: .
       dockerfile: Dockerfile.prod
+    restart: always
     ports:
       - 8000:8000
-    restart: on-failure
     env_file:
-      - .env
+      - .env.production
+    depends_on:
+      - db
+      - maildev
+
+  db:
+    image: postgres:16-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: simple_blog
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  maildev:
+    image: maildev/maildev
+    restart: always
+
+volumes:
+  db-data:
