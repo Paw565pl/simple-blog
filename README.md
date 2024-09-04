@@ -2,10 +2,6 @@
 
 This is an imaginary blog built in Django entirely for educational purposes.
 
-### Live demo
-
-[https://simpleblog-iv6t.onrender.com](https://simpleblog-iv6t.onrender.com)
-
 ### How to run it locally?
 
 It is fairly simple thanks to docker. Simply run this command after **cloning the repository**.
