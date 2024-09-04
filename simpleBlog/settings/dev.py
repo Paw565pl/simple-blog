@@ -25,4 +25,7 @@ DATABASES = {
     }
 }
 
+EMAIL_HOST = "maildev"
 EMAIL_PORT = 1025
+EMAIL_HOST_USER = ""
+EMAIL_HOST_PASSWORD = ""
