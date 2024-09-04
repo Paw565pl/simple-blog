@@ -9,8 +9,8 @@ from .forms import (
     CustomAuthenticationForm,
     UserRegisterForm,
     UserUpdateForm,
-    CustomPasswordResetForm,
 )
+from django.contrib.auth.forms import PasswordResetForm
 
 
 # Create your views here.
@@ -39,5 +39,5 @@ class ProfileView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 
 
 class CustomPasswordResetView(PasswordResetView):
-    form_class = CustomPasswordResetForm
+    form_class = PasswordResetForm
     from_email = "passwordservice@simpleblog.com"

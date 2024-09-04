@@ -1,10 +1,9 @@
-from django.forms import ModelForm, FileInput, ImageField
+from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import (
     AuthenticationForm,
     UserCreationForm,
-    PasswordResetForm,
 )
-from django.contrib.auth import get_user_model
+from django.forms import FileInput, ImageField, ModelForm
 from hcaptcha_field import hCaptchaField
 
 
@@ -26,9 +25,3 @@ class UserUpdateForm(ModelForm):
     class Meta:
         model = get_user_model()
         fields = ["username", "email", "image"]
-
-
-class CustomPasswordResetForm(PasswordResetForm):
-    def clean_email(self):
-        email = self.cleaned_data["email"]
-        return email
