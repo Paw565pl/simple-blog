@@ -6,7 +6,7 @@ authors = ["Paw565pl <paw565pl@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.12"
 crispy-bootstrap5 = "^0.7"
 django-crispy-forms = "^2.0"
 pillow = "^10.0.0"
