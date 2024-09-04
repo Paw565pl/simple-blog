@@ -2,16 +2,12 @@ from os import environ
 import dj_database_url
 from .base import *
 
-
 SECRET_KEY = environ.get("SECRET_KEY")
 
 DEBUG = False
+DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
-
-RENDER_EXTERNAL_HOSTNAME = environ.get("RENDER_EXTERNAL_HOSTNAME")
-if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "app"]
 
 MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
 
@@ -24,14 +20,11 @@ STORAGES = {
     },
 }
 
-# if only there was a good free tier for postgres in cloud
-# DATABASES = {
-#     "default": dj_database_url.config(
-#         default=environ.get("DB_URL"),
-#         conn_max_age=600,
-#         conn_health_checks=True,
-#     )
-# }
+DATABASES = {
+    "default": dj_database_url.config(
+        conn_health_checks=True,
+    )
+}
 
 DATABASES = {
     "default": {
