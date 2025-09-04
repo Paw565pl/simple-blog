@@ -1,16 +1,28 @@
 services:
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - app
+    volumes:
+      - media-files:/var/www/media:ro
+
   app:
     build:
       context: .
       dockerfile: Dockerfile.prod
     restart: always
-    ports:
-      - 8000:8000
     env_file:
       - .env.production
     depends_on:
       - db
       - maildev
+    volumes:
+      - media-files:/app/media
 
   db:
     image: postgres:17-alpine
@@ -27,3 +39,4 @@ services:
 
 volumes:
   db-data:
+  media-files:
