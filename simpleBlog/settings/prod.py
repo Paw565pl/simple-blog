@@ -21,16 +21,7 @@ STORAGES = {
 }
 
 DATABASES = {
-    "default": dj_database_url.config(
-        conn_health_checks=True,
-    )
-}
-
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "db.sqlite3",
-    }
+    "default": dj_database_url.config(conn_health_checks=True, conn_max_age=600)
 }
 
 EMAIL_HOST = environ.get("EMAIL_HOST")
