@@ -2,9 +2,9 @@
 
 import django.contrib.auth.models
 import django.contrib.auth.validators
-from django.db import migrations, models
 import django.utils.timezone
 import django_resized.forms
+from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
@@ -89,7 +89,7 @@ class Migration(migrations.Migration):
                     "image",
                     django_resized.forms.ResizedImageField(
                         crop=None,
-                        default="default.png",
+                        default="default_user_image.webp",
                         force_format=None,
                         keep_meta=True,
                         quality=-1,

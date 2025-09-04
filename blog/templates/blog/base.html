@@ -1,5 +1,5 @@
 {% load static %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-bs-theme="dark">
   <head>
     <meta charset="UTF-8" />
@@ -27,7 +27,10 @@
       <nav class="navbar navbar-expand-lg nav-bg">
         <div class="container">
           <a class="navbar-brand" href="{% url 'blog_home' %}"
-            ><img src="{% static 'blog/img/logo.png'%}" alt="logo" class="logo"
+            ><img
+              src="{% static 'blog/img/logo.webp'%}"
+              alt="logo"
+              class="logo"
           /></a>
           <button
             class="navbar-toggler"
